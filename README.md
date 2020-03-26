@@ -1,6 +1,8 @@
 # ShoppingList
 
 ### Project URL Firebase
+[![CircleCI](https://circleci.com/gh/FRossouw/shopping-list/tree/development.svg?style=svg)](https://circleci.com/gh/FRossouw/shopping-list/tree/development)
+
 https://shopping-list-2e07f.firebaseapp.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
