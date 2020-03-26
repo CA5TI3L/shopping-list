@@ -1,15 +1,26 @@
 import { createAction, props } from '@ngrx/store';
+import { ShoppingListItem } from '../../models/shopping';
 
-export const loadShoppings = createAction(
-  '[Shopping] Load Shoppings'
+export const getListItems = createAction(
+  '[Shopping] GetListItems'
 );
 
-export const loadShoppingsSuccess = createAction(
-  '[Shopping] Load Shoppings Success',
-  props<{ data: any }>()
+export const getListItemsComplete = createAction(
+  '[Shopping] GetListItemsComplete',
+  props<{ items: ShoppingListItem[] }>()
 );
 
-export const loadShoppingsFailure = createAction(
-  '[Shopping] Load Shoppings Failure',
-  props<{ error: any }>()
+export const addListItem = createAction(
+  '[Shopping] AddListItem',
+  props<{ item: ShoppingListItem }>()
+);
+
+export const updateListItem = createAction(
+  '[Shopping] UpdateListItem',
+  props<{ item: ShoppingListItem }>()
+);
+
+export const removeListItem = createAction(
+  '[Shopping] RemoveListItem',
+  props<{ item: ShoppingListItem }>()
 );
