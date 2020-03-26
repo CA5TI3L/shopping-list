@@ -31,13 +31,13 @@ const shoppingReducer = createReducer(
     return {
       ...state,
       shoppingListItems: [...tempList]
-    }
+    };
   }),
   on(removeListItem, (state, { item }) => {
     const tempList = state.shoppingListItems.filter(listItem => listItem.id !== item.id);
     return {
       ...state,
       shoppingListItems: [...tempList]
-    }
+    };
   })
 );
