@@ -7,10 +7,12 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShoppingListItemComponent } from './components/shopping-list-item/shopping-list-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShoppingListItemComponent
   ],
   imports: [
     BrowserModule,
