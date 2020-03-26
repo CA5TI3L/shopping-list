@@ -1,0 +1,9 @@
+{
+    "shoppingListItems": [
+        {"id": 1, "label": "Toilet Paper", "completed" : false},
+        {"id": 2, "label": "Hand Santizer", "completed" : false},
+        {"id": 3, "label": "Canned Food", "completed" : true},
+        {"id": 4, "label": "Cards Against Humanity", "completed" : true},
+        {"id": 5, "label": "NGRX Bored", "completed" : false}
+    ]
+}
