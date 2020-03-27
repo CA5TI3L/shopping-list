@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   shoppingListItems$: Observable<ShoppingListItem[]>;
 
   constructor(private shoppingListStore: Store<ShoppingState>) { }
-  
   ngOnInit(): void {
     this.shoppingListItems$ = this.shoppingListStore.pipe(
       select(selectListItems)
@@ -26,8 +25,8 @@ export class AppComponent implements OnInit {
   }
 
   onCheckChanged(event: boolean, eventItem: ShoppingListItem) {
-    //item.completed = event;
-    this.shoppingListStore.dispatch(updateListItem({ item: {...eventItem, completed: event} }));
+    // item.completed = event;
+    this.shoppingListStore.dispatch(updateListItem({ item: { ...eventItem, completed: event } }));
   }
 
   onRemoved(item: ShoppingListItem) {

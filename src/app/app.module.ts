@@ -38,7 +38,7 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    StoreModule.forRoot(reducers, {metaReducers: [debug]}),
+    StoreModule.forRoot(reducers, { metaReducers: [debug] }),
     EffectsModule.forRoot([]),
     EffectsModule.forFeature([ShoppingEffects]),
     BrowserAnimationsModule,

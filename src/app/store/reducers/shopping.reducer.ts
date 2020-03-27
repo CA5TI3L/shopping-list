@@ -44,7 +44,7 @@ const shoppingReducer = createReducer(
 );
 
 export function reducer(state: ShoppingState | undefined, action: Action) {
-  return shoppingReducer(state, action)
+  return shoppingReducer(state, action);
 }
 
 export const selectFeature = createFeatureSelector<any, ShoppingState>('shoppingList');
