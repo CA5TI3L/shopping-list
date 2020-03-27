@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { ShoppingListItem } from '../../models/shopping';
 import { EventEmitter } from '@angular/core';
 
@@ -7,9 +7,9 @@ import { EventEmitter } from '@angular/core';
   selector: 'app-shopping-list-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './shopping-list-item.component.html',
-  styleUrls: ['./shopping-list-item.component.css']
+  styleUrls: ['./shopping-list-item.component.scss']
 })
-export class ShoppingListItemComponent implements OnInit {
+export class ShoppingListItemComponent {
 
   @Input() shoppingListItem: ShoppingListItem;
   @Output() checked = new EventEmitter<boolean>();
@@ -23,9 +23,6 @@ export class ShoppingListItemComponent implements OnInit {
 
   removeMe() {
     this.removed.emit();
-  }
-
-  ngOnInit(): void {
   }
 
 }
