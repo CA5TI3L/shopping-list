@@ -1,6 +1,7 @@
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, createFeatureSelector, createSelector } from '@ngrx/store';
 import { ShoppingListItem } from 'src/app/models/shopping';
 import { getListItems, getListItemsComplete, addListItem, updateListItem, removeListItem } from '../actions/shopping.actions';
+import { Action } from '@ngrx/store';
 
 export const shoppingFeatureKey = 'shopping';
 
@@ -20,7 +21,7 @@ const shoppingReducer = createReducer(
   on(getListItemsComplete, (state, { items }) => ({
     ...state,
     isLoading: false,
-    shoppingListItems: [...state.shoppingListItems, ...items]
+    shoppingListItems: [...items, ...state.shoppingListItems]
   })),
   on(addListItem, (state, { item }) => ({
     ...state,
@@ -41,3 +42,17 @@ const shoppingReducer = createReducer(
     };
   })
 );
+
+export function reducer(state: ShoppingState | undefined, action: Action) {
+  return shoppingReducer(state, action)
+}
+
+export const selectFeature = createFeatureSelector<any, ShoppingState>('shoppingList');
+
+export const selectIsLoading = createSelector(
+  selectFeature,
+  (state: ShoppingState) => state.isLoading);
+
+export const selectListItems = createSelector(
+  selectFeature,
+  (state: ShoppingState) => state.shoppingListItems);
