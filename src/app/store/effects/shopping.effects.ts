@@ -2,28 +2,32 @@ import { Injectable } from '@angular/core';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { ShoppingListServiceService } from '../../services/shopping-list-service.service';
-import { getListItemsComplete } from '../actions/shopping.actions';
+import { getListItems, getListItemsComplete } from '../actions/shopping.actions';
+import { catchError, map, mergeMap} from 'rxjs/operators';
 
 @Injectable()
 export class ShoppingEffects {
 
+  getListItems$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getListItems),
+      mergeMap(action =>
+        this.shoppingListService.loadShoppingList().pipe(
+          map(response => {
+            return getListItemsComplete({ items: response['shoppingListItems'] });
+          }),
+          catchError(err => {
+            console.error(err);
+            return EMPTY;
+          })
+        )
+      )
+    )
+  );
+
   constructor(private actions$: Actions, private shoppingListService: ShoppingListServiceService) { }
 
-//   getListItems$ = createEffect(() =>
-//     this.actions$.pipe(
-//       ofType(getListItems),
-//       mergeMap(action =>
-//         this.shoppingListService.loadShoppingList().pipe(
-//           map(response => {
-//             return getListItemsComplete({ items: response['shoppingListItems'] });
-//           }),
-//           cathError(err => {
-//             console.error(err);
-//             return EMPTY;
-//           })
-//         )
-//       )
-//     )
-//   )
-// };
 }
+
+
+
