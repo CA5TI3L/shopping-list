@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-checkbox [checked]="shoppingListItem?.completed" (change)="checkedChanged($event)" [class.strikeThrough]="shoppingListItem?.completed">
+        {{shoppingListItem?.label}}
+    </mat-checkbox>
+
+    <span></span>
+    <button mat-icon-button (click)="removeMe()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-card>

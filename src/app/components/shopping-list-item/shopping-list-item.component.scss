@@ -1,0 +1,17 @@
+mat-card {
+    margin-bottom: 16px;
+    display: flex;
+
+    span {
+        flex: 1 1 auto;
+    }
+
+    mat-checkbox {
+        margin: auto;
+    }
+
+}
+
+.strikeThrough {
+    text-decoration: line-through;
+}
