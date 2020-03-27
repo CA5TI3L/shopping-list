@@ -14,7 +14,8 @@ export class ShoppingEffects {
       mergeMap(action =>
         this.shoppingListService.loadShoppingList().pipe(
           map(response => {
-            return getListItemsComplete({ items: response['shoppingListItems'] });
+            const key = 'shoppingListItems';
+            return getListItemsComplete({ items: response[key]});
           }),
           catchError(err => {
             console.error(err);
